@@ -27,6 +27,8 @@ class LinkedList
   struct Node
   {
     string name;
+    double longi;
+    double lat;
     Node *pNext;
   };
   Node *current;
@@ -45,23 +47,26 @@ LinkedList::LinkedList()
     first = NULL;
 }
 
-LinkedList::LinkedList(string nm)
+LinkedList::LinkedList(string nm, double la, double lo)
 {
-
-    current = first = new Node;
-    first -> name = nm;
-    first -> pNext = NULL;
+  current = first = new Node;
+  first -> name = nm;
+  first -> longi = lo;
+  first -> lat = la;
+  first -> pNext = NULL;
 }
 // Destructor
 
 // add(value)				//Adds a new value to the end of this list.
-void LinkedList::addList(string nm)
+void LinkedList::addList(string nm, double la, double lo )
 {
   if(current == NULL)            // empty list
   {
     current = new Node;
     current -> name = nm;
     current -> pNext = NULL;
+    current -> longi = lo;
+    current -> lat = la;
     first = current;
   }
   else
@@ -70,20 +75,19 @@ void LinkedList::addList(string nm)
     current -> pNext = new Node;
     current = current -> pNext;
     current -> name = nm;
+    current -> longi = lo;
+    current -> lat = la;
     current -> pNext = NULL;
   }
 }
 // clear()					//Removes all elements from this list.
 void LinkedList::clear()
 {
-  Node* ha = first; // empty header
-  Node* current = first->pNext; // first valid node
-  while (current != NULL)
+  Node* ha = first;
+  while (ha != NULL)
   {
-    ha->pNext = current->pNext; // unlike node removing
-    delete current; // delete the node
-    ha = current; // set new ha 
-    current = current->pNext; // move current forwards
+    delete ha; // delete the node
+    ha = ha->pNext; // move current forwards
   }
 }
 // equals(list)				//Returns true if the two lists contain the same elements in the same order.
@@ -97,7 +101,15 @@ void LinkedList::clear()
 // isEmpty()				//Returns true if this list contains no elements.
 
 // remove(index)			//Removes the element at the specified index from this list.
-
+void LinkedList::remove(int index)
+{
+   Node* ha = first;
+   for (int i = 0; i < index; i++)
+   {
+      ha = ha->pNext;
+   }
+   delete ha;
+}
 // set(index, value)		//Replaces the element at the specified index in this list with a new value.
 
 // size()					//Returns the number of elements in this list.
