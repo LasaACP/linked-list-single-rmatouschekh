@@ -93,6 +93,15 @@ void LinkedList::clear()
 // equals(list)				//Returns true if the two lists contain the same elements in the same order.
 
 //get(index)				//Returns the element at the specified index in this list.
+string LinkedList::get(int index)
+{
+   Node* ha = first;
+   for (int i = 0; i < index; i++)
+   {
+      ha = ha->pNext;
+   }
+   return ha->name;
+}
 
 //insert(index, value)		//Inserts the element into this list before the specified index.
 
@@ -113,6 +122,17 @@ void LinkedList::remove(int index)
 // set(index, value)		//Replaces the element at the specified index in this list with a new value.
 
 // size()					//Returns the number of elements in this list.
+int LinkedList::size()
+{
+   Node* ha = first;
+   int s = 0;
+   while (ha != NULL)
+   {
+      s++;
+      ha = ha->pNext;
+   }
+   return s;
+}
 
 // subList(start, length)	//Returns a new list containing elements from a sub-range of this list.
 
