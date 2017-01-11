@@ -177,4 +177,10 @@ int LinkedList::size()
 // toString()				//Converts the list to a printable string representation.
 void LinkedList::toString()
 {
+  Node* ha = first;
+  while (ha != NULL)
+  {
+    cout << "Name: " << ha->name << ", Latitude: " << ha->lat << ", Longitude: " << ha->longi << endl;
+    ha = ha->pNext;
+  }
 }
