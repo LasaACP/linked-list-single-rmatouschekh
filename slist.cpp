@@ -173,7 +173,19 @@ int LinkedList::size()
 }
 
 // subList(start, length)	//Returns a new list containing elements from a sub-range of this list.
-
+LinkedList LinkedList::subList(int start, int length)
+{
+  LinkedList newlist;
+  Node ha* = first;
+  for (int i = 0; i < start; i++)
+  {
+    ha = ha-pNext;
+  }
+  for (int i = start; i < start+length; i++)
+  {
+    null;
+  }
+}
 // toString()				//Converts the list to a printable string representation.
 void LinkedList::toString()
 {
