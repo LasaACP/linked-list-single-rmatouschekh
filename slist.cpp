@@ -9,17 +9,6 @@ Class Library File
 #include <string>
 using namespace std;
 
-void LinkedList::Last()
-{
-   if(current != NULL)
-   { 
-      while(current -> pNext != NULL)
-      {
-        current = current -> pNext;
-      }
-   }
-}
-
 // Constructor
 class LinkedList
 {
@@ -58,7 +47,7 @@ LinkedList::LinkedList(string nm, double la, double lo)
 // Destructor
 
 // add(value)				//Adds a new value to the end of this list.
-void LinkedList::addList(string nm, double la, double lo )
+void LinkedList::add(string nm, double la, double lo)
 {
   if(current == NULL)            // empty list
   {
@@ -137,7 +126,17 @@ void LinkedList::exchg(int index1, int index2)
    bla->name = na;
 }
 // isEmpty()				//Returns true if this list contains no elements.
-
+bool LinkedList::isEmpty()
+{
+   if (first == NULL)
+   {
+      return true;
+   }
+   else
+   {
+      return false;
+   }
+}
 // remove(index)			//Removes the element at the specified index from this list.
 void LinkedList::remove(int index)
 {
@@ -149,7 +148,17 @@ void LinkedList::remove(int index)
    delete ha;
 }
 // set(index, value)		//Replaces the element at the specified index in this list with a new value.
-
+void LinkedList::set(int index, string nm, double la, double lo)
+{
+   Node* ha = first;
+   for (int i = 0; i < index; i++)
+   {
+      ha = ha->pNext;
+   }
+   ha->name = nm;
+   ha->lat = la;
+   ha->longi = lo;
+}
 // size()					//Returns the number of elements in this list.
 int LinkedList::size()
 {
