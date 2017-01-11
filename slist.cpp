@@ -102,11 +102,40 @@ string LinkedList::get(int index)
    }
    return ha->name;
 }
-
 //insert(index, value)		//Inserts the element into this list before the specified index.
 
 //exchg(index1, index2)		//Switches the payload data of specified indexex.
-
+void LinkedList::exchg(int index1, int index2)
+{
+   Node* ha = first;
+   Node* bla;
+   double lo;
+   double la;
+   string na;
+   for (int i = 0; i=<index2; i++)
+   {
+      if (i == index1)
+      {
+         lo = ha->longi;
+         la = ha->lat;
+         na = ha->name;
+         bla = ha;
+      }
+      else if (i == index2)
+      {
+         ha->longi = lo;
+         ha->lat = la;
+         ha->name = na;
+         lo = ha->longi;
+         la = ha->lat;
+         na = ha->name;
+      }
+      ha = ha->pNext;
+   }
+   bla->longi = lo;
+   bla->lat = la;
+   bla->name = na;
+}
 // isEmpty()				//Returns true if this list contains no elements.
 
 // remove(index)			//Removes the element at the specified index from this list.
