@@ -45,7 +45,17 @@ LinkedList::LinkedList(string nm, double la, double lo)
   first -> pNext = NULL;
 }
 // Destructor
-
+LinkedList::~LinkedList()
+{
+  Node* ha = first;
+  while (ha != NULL)
+  {
+    Node* next = ha->pNext;
+    delete ha;
+    ha = next;
+  }
+  first = NULL;
+}
 // add(value)				//Adds a new value to the end of this list.
 void LinkedList::add(string nm, double la, double lo)
 {
