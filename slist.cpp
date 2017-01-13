@@ -102,7 +102,18 @@ string LinkedList::get(int index)
    return ha->name;
 }
 //insert(index, value)		//Inserts the element into this list before the specified index.
-
+void LinkedList::insert(int index, string nm, double la, double lo)
+{
+  Node* ha = first;
+  for (int i = 0; i < index; i++)
+  {
+    if (i == (index-1))
+    {
+      ha->pNext = add(nm, la, lo);
+    }
+    ha = ha->pNext;
+  }
+}
 //exchg(index1, index2)		//Switches the payload data of specified indexex.
 void LinkedList::exchg(int index1, int index2)
 {
